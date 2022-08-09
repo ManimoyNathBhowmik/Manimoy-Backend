@@ -28,6 +28,38 @@ router.get("/movies/:indexNumber", function(req, res){
     res.send(requiredMovie)
 })
 
+router.get("/numbers-chk", function(req,res){
+    let arr = [1,2,4,5,6,7,8]
+    function number(arr){
+        for(let i=0; i<arr.length; i++){
+            if(i+1 !=arr[i]){
+                return arr[i]-1
+            }else{
+
+            }
+        }
+    }
+    let result = number (arr)
+    res.send(result.toString())
+})
+
+router.get("/Second-number", function(req,res){
+    const findMissing = num => {
+        const max = Math.max(...num); // Will find highest number
+        const min = Math.min(...num); // Will find lowest number
+        const missing = []
+      
+        for(let i=min; i<= max; i++) {
+          if(!num.includes(i)) { // Checking whether i(current value) present in num(argument)
+            missing.push(i); // Adding numbers which are not in num(argument) array
+          }
+        }
+        res.send(missing)
+      }
+      
+      findMissing([1,2,6]);
+})
+
 router.get("/shoes", function(req, res){
     let queryParams = req.query
     let brand = queryParams.brand
