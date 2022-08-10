@@ -45,13 +45,13 @@ router.get("/numbers-chk", function(req,res){
 
 router.get("/Second-number", function(req,res){
     const findMissing = num => {
-        const max = Math.max(...num); // Will find highest number
-        const min = Math.min(...num); // Will find lowest number
+        const max = Math.max(...num); 
+        const min = Math.min(...num); 
         const missing = []
       
         for(let i=min; i<= max; i++) {
-          if(!num.includes(i)) { // Checking whether i(current value) present in num(argument)
-            missing.push(i); // Adding numbers which are not in num(argument) array
+          if(!num.includes(i)) { 
+            missing.push(i); 
           }
         }
         res.send(missing)
