@@ -2,7 +2,73 @@ const express = require('express');
 const myHelper = require('../util/helper')
 const underscore = require('underscore')
 
+const UserController = require("../controllers/userController")
+
 const router = express.Router();
+const userModel = require("../models/userModels")
+
+
+
+router.post("/create-book-list",UserController.createBooklist )
+
+
+router.get("/get-book-list",UserController.getBookList)
+
+// })
+
+
+
+
+let persons = [
+    {
+        name : "pk",
+        age : 10 ,
+        votingStatus : false
+
+    },
+    {
+        name : "sk",
+        age : 20 ,
+        votingStatus : false
+
+    },
+    {
+        name : "aa",
+        age : 70 ,
+        votingStatus : false
+
+    },
+    {
+        name : "sc",
+        age : 5 ,
+        votingStatus : false
+
+    },
+    {
+        name : "ho",
+        age : 40 ,
+        votingStatus : false
+
+    },
+]
+
+router.post('/getvooting-status', function(req,res){
+    let votingAge = req.query.age
+    let eligibalePerson = []
+    for (let i = 0; i<persons.length; i++){
+        if(persons[i].age > votingAge){
+            persons[i].votingStatus = true;
+            eligibalePerson.push(persons[i])
+        }
+    }
+    res.send({persons:eligibalePerson,status:true})
+})
+
+
+
+
+
+
 
 router.get('/test-me', function (req, res) {
     myHelper.printDate()

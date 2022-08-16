@@ -1,7 +1,16 @@
 const express = require('express');
+
 var bodyParser = require('body-parser');
 
 const route = require('./routes/route.js');
+const { default: mongoose } = require('mongoose');
+
+mongoose.connect("mongodb+srv://manimoyBhowmik:Mycluster@cluster0.ysvufvg.mongodb.net/booksData"
+,{
+    useNewUrlParser: true,
+}
+).then( ()=> {console.log( "Mongo Dp is Successfully connected" )} )
+.catch(err => console.log(err))
 
 const app = express();
 
