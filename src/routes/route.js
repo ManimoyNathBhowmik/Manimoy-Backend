@@ -2,17 +2,25 @@ const express = require('express');
 const myHelper = require('../util/helper')
 const underscore = require('underscore')
 
-const UserController = require("../controllers/userController")
+const bookController = require("../controllers/bookController")
 
 const router = express.Router();
 const userModel = require("../models/userModels")
 
 
 
-router.post("/create-book-list",UserController.createBooklist )
+router.post("/create-book",bookController.createBooklist )
 
 
-router.get("/get-book-list",UserController.getBookList)
+router.get("/book-list",bookController.getBookList)
+
+router.post("/get-Books-In-Year",bookController.getBooksInYear)
+
+router.post("/get-Particular-Books",bookController.getParticularBooks)
+
+router.get("/get-XINR-Books",bookController.getXINRBooks)
+
+router.get("/get-Random-Books",bookController.getRandomBooks)
 
 // })
 

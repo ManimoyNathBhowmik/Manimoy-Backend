@@ -5,7 +5,7 @@ var bodyParser = require('body-parser');
 const route = require('./routes/route.js');
 const { default: mongoose } = require('mongoose');
 
-mongoose.connect("mongodb+srv://manimoyBhowmik:Mycluster@cluster0.ysvufvg.mongodb.net/booksData"
+mongoose.connect("mongodb+srv://manimoyBhowmik:Mycluster@cluster0.ysvufvg.mongodb.net/bookCollection"
 ,{
     useNewUrlParser: true,
 }
