@@ -8,6 +8,24 @@ const router = express.Router();
 const userModel = require("../models/userModels")
 
 
+router.post("/creat-book",bookController.creatBooks)
+
+router.post("/createAuthorList",bookController.authorList)
+
+router.get("/listBooks",bookController.listBooks)
+
+router.get("/updatebook",bookController.updatebook)
+
+router.get("/bookrange",bookController.bookrange)
+
+
+
+
+
+
+
+
+
 
 router.post("/create-book",bookController.createBooklist )
 
@@ -21,6 +39,8 @@ router.post("/get-Particular-Books",bookController.getParticularBooks)
 router.get("/get-XINR-Books",bookController.getXINRBooks)
 
 router.get("/get-Random-Books",bookController.getRandomBooks)
+
+router.post("/update",bookController.updateBooks)
 
 // })
 
