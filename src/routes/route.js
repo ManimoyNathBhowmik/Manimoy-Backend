@@ -1,20 +1,20 @@
 const express = require('express');
 const router = express.Router();
-const userController= require("../controllers/userController")
-const middleware = require("../middleware/auth")
+
+const cowinController = require("../controllers/cowinController")
+
+
 router.get("/test-me", function (req, res) {
     res.send("My first ever api!")
 })
 
-router.post("/createusers", userController.createUser)
+router.get("/cowin/getByDistrict", cowinController.getDistrictSession)
 
-router.post("/loginuser", userController.loginUser , middleware.authenticate )
+router.get("/allMemes",cowinController.getMemes)
 
-//The userId is sent by front end
-router.get("/getusers/:userId",middleware.authorise, middleware.authorise2, userController.getUserData)
-router.post("/postusers/:userId/posts",middleware.authorise,middleware.authorise2, userController.postMessage)
+router.post("/updatedMemes",cowinController.myMeme)
 
-router.put("/updateusers/:userId", middleware.authorise ,middleware.authorise2, userController.updateUser)
- router.delete('/deleteusers/:userId',middleware.authorise ,middleware.authorise2, userController.deleteUser)
+router.get("/temp",cowinController.weatherData)
 
 module.exports = router;
+
